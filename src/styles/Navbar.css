@@ -1,27 +1,99 @@
+/* General Navbar Styles */
 .Navbar {
-  width: 100%;
-  height: 100px;
-  background-color: #121619;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* Dark background */
+  color: white;
+  padding: 10px 20px;
+  height: 60px;
 }
 
-.Navbar .leftSide {
-    flex: 50%;
-    height: 100%;
+/* LeftSide (Logo + Hidden Links for Small Screens) */
+.LeftSide {
+  display: flex;
+  align-items: center;
+}
+
+.LeftSide img {
+  height: 50px; /* Adjust logo size */
+  cursor: pointer;
+}
+
+.hiddenLinks {
+  display: none; /* Initially hidden */
+}
+
+/* RightSide (Navigation Links + Menu Button) */
+.RightSide {
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ffcc00;
+}
+
+/* Menu Button (for small screens) */
+.menu-button {
+  display: none; /* Hidden by default */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  margin-left: 15px;
+}
+
+/* Responsive Navbar */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none; /* Hide links on small screens */
+  }
+
+  .menu-button {
+    display: block; /* Show menu button */
+  }
+
+  /* When menu is open, show the hiddenLinks */
+  .hiddenLinks.show {
     display: flex;
-    align-items: center;
-    padding-left: 150px;
-}
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 10px 0;
+  }
 
-.Navbar .leftSide img {
-    width: 70px;
-}
+  .hiddenLinks a {
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+    display: block;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
 
-.Navbar .rightSide {
-    flex: 50%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    
+  .hiddenLinks a:hover {
+    background-color: #444;
+    color: #ffcc00;
+  }
 }
